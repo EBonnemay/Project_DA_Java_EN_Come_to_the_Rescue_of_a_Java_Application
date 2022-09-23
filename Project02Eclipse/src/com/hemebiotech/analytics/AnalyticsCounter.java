@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.service.ReadSymptomDataFromFile;
 
+import com.hemebiotech.analytics.service.*;
 
 import java.io.IOException;
 import java.util.TreeMap;
@@ -33,8 +33,8 @@ public class AnalyticsCounter {
 		ds.FromStringToBufferedReader();
 		TreeMap<String, Integer> objetMap = ds.CreateMap();
 		System.out.println(objetMap);
-		//IMapServices ms = new MapServices(objetMap);
-		//ms.fromTreemapToFile();
+		RetrieveDataFromMap ms = new RetrieveDataFromMap(objetMap);
+		ms.fromTreemapToFile();
 
 	}
 
