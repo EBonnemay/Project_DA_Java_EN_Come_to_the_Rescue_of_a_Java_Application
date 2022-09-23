@@ -1,11 +1,44 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import com.hemebiotech.analytics.service.ReadSymptomDataFromFile;
+
+
+import java.io.IOException;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;
+	static String fileName;
+
+	/**
+	 * méthode main valorise un fileName par défaut ou un fileName choisi par
+	 * l'utilisateur, crée un objet AnalyticsCounter et appelle sur cet objet la
+	 * fonction workFlow
+	 *
+
+	 */
+	public static void main(String[] args) throws Exception {
+		System.out.println("beginning");
+		fileName = "Project02Eclipse/symptoms.txt";
+		if (args.length != 0) {
+			fileName = args[0];
+		}
+		AnalyticsCounter controle = new AnalyticsCounter();
+		controle.workFlow();
+	}
+
+
+	public void workFlow() throws IOException {
+
+		ReadSymptomDataFromFile ds = new ReadSymptomDataFromFile(fileName);
+		ds.FromStringToBufferedReader();
+		TreeMap<String, Integer> objetMap = ds.CreateMap();
+		System.out.println(objetMap);
+		//IMapServices ms = new MapServices(objetMap);
+		//ms.fromTreemapToFile();
+
+	}
+
+	/*private static int headacheCount = 0;
 	private static int rashCount = 0;
 	private static int dialatedPupilCount = 0;
 	
@@ -38,4 +71,6 @@ public class AnalyticsCounter {
 		writer.write("dialated pupils: " + dialatedPupilCount + "\n");
 		writer.close();
 	}
+	}
+	 */
 }
