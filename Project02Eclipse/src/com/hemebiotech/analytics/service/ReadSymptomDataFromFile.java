@@ -1,6 +1,8 @@
 package com.hemebiotech.analytics.service;
 
 
+import com.hemebiotech.analytics.interfaces.IReadSymptomDataFromFile;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,7 +13,7 @@ import java.util.TreeMap;
  * Simple brute force implementation
  *
  */
-public class ReadSymptomDataFromFile  {
+public class ReadSymptomDataFromFile implements IReadSymptomDataFromFile {
 	BufferedReader reader;
 	String fileName;
 	TreeMap<String, Integer> mapOfSymptoms = new TreeMap<>();

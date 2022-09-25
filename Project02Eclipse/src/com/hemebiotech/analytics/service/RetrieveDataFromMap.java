@@ -1,12 +1,14 @@
 package com.hemebiotech.analytics.service;
 
+import com.hemebiotech.analytics.interfaces.IRetrieveDataFromMap;
+
 import java.io.FileWriter;
 import java.io.IOException;
 //import java.util.HashMap;
 import java.util.TreeMap;
 
 
-public class RetrieveDataFromMap {
+public class RetrieveDataFromMap implements IRetrieveDataFromMap {
 
     TreeMap<String, Integer> map;
 // pourquoi = new TreeMap<>(); est-il redondant?

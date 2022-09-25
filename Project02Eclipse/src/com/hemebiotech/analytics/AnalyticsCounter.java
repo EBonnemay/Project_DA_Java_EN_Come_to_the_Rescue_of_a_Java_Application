@@ -1,6 +1,8 @@
 package com.hemebiotech.analytics;
 
 
+import com.hemebiotech.analytics.interfaces.IReadSymptomDataFromFile;
+import com.hemebiotech.analytics.interfaces.IRetrieveDataFromMap;
 import com.hemebiotech.analytics.service.*;
 
 import java.io.IOException;
@@ -29,11 +31,11 @@ public class AnalyticsCounter {
 
 	public void workFlow() throws IOException {
 
-		ReadSymptomDataFromFile ds = new ReadSymptomDataFromFile(fileName);
+		IReadSymptomDataFromFile ds = new ReadSymptomDataFromFile(fileName);
 		ds.FromStringToBufferedReader();
 		TreeMap<String, Integer> objetMap = ds.CreateMap();
 		System.out.println(objetMap);
-		RetrieveDataFromMap ms = new RetrieveDataFromMap(objetMap);
+		IRetrieveDataFromMap ms = new RetrieveDataFromMap(objetMap);
 		ms.fromTreemapToFile();
 
 	}
