@@ -14,8 +14,8 @@ import java.util.TreeMap;
  *
  */
 public class ReadSymptomDataFromFile implements IReadSymptomDataFromFile {
-	BufferedReader reader;
-	String fileName;
+	private BufferedReader reader;
+	private final String fileName;
 	TreeMap<String, Integer> mapOfSymptoms = new TreeMap<>();
 
 	public ReadSymptomDataFromFile(String fileName) {
@@ -26,62 +26,38 @@ public class ReadSymptomDataFromFile implements IReadSymptomDataFromFile {
 		File file = new File(fileName);
 		try {
 			reader = new BufferedReader(new FileReader(file));
-
-
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public TreeMap<String, Integer> CreateMap() throws IOException {
-		String line = reader.readLine();
-		while (line != null) {
-
-			if (!mapOfSymptoms.containsKey(line)) {
-				mapOfSymptoms.put(line, 1);
+	public TreeMap<String, Integer> CreateMap() throws Exception {
+		try {
+			String line = reader.readLine();
+			if (line == null) {
+				System.out.println("File is empty");
 			}
 
-			else {
-				mapOfSymptoms.put(line, mapOfSymptoms.get(line) + 1);
-			}
+			while (line != null) {
 
-			line = reader.readLine();
-		}
-		reader.close();
-		System.out.println(mapOfSymptoms);
-		return mapOfSymptoms;
-	}
-
-/*
-	private String filepath;
-	
-
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
-	}
-	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
+				if (!mapOfSymptoms.containsKey(line)) {
+					mapOfSymptoms.put(line, 1);
 				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+				else {
+					mapOfSymptoms.put(line, mapOfSymptoms.get(line) + 1);
+				}
+
+				line = reader.readLine();
 			}
+			reader.close();
 		}
-		
-		return result;
-	}
-	*/
+		catch(IOException e){
+			throw new Exception("Impossible de lire le fichier", e);
+		}
+			System.out.println(mapOfSymptoms);
+			return mapOfSymptoms;
+		}
+
 
 }

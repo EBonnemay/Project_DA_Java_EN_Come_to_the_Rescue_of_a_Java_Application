@@ -4,13 +4,12 @@ import com.hemebiotech.analytics.interfaces.IRetrieveDataFromMap;
 
 import java.io.FileWriter;
 import java.io.IOException;
-//import java.util.HashMap;
 import java.util.TreeMap;
 
 
 public class RetrieveDataFromMap implements IRetrieveDataFromMap {
 
-    TreeMap<String, Integer> map;
+    private final TreeMap<String, Integer> map;
 // pourquoi = new TreeMap<>(); est-il redondant?
     /**
      * constructeur de MapServices valorise la variable de classe map.
@@ -26,6 +25,7 @@ public class RetrieveDataFromMap implements IRetrieveDataFromMap {
      * Méthode fromTreemapToFile retourne un fichier txt contenant la liste des
      * symptômes et le nombre d'occurrences correspondant
      */
+
     public void fromTreemapToFile() throws IOException {
         FileWriter writer = new FileWriter("result.out");
         for (String s : map.keySet()) {
