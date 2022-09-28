@@ -10,7 +10,7 @@ import java.util.TreeMap;
 
 /**
  * lit la liste de symptômes d'un fichier txt et renvoie une map de symtômes uniques (pas de doublon)
- * en associant à chaque symtômes son nombre d'occurences.
+ * en associant à chaque symtôme son nombre d'occurences.
  *
  * @author Emmanuelle Bonnemay
  * @version 1
