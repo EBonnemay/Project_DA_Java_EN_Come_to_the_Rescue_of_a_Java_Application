@@ -2,7 +2,7 @@ package com.hemebiotech.analytics.interfaces;
 
 import java.io.IOException;
 
-public interface IRetrieveDataFromMap {
+public interface IDataFromMapToResultFile {
     void fromTreemapToFile() throws IOException;
 
 }
