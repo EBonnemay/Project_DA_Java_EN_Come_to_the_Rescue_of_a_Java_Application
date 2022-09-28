@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 /**
- * crée un objet File et explore le fichier pour retourner une
+ * Crée un objet File et explore le fichier pour retourner une
  * Map associant chaque symtôme à son nombre d'occurrences.
  */
 public class DataFromSymptomsFileToMap implements IDataFromSymptomsFileToMap {
@@ -19,7 +19,7 @@ public class DataFromSymptomsFileToMap implements IDataFromSymptomsFileToMap {
     TreeMap<String, Integer> mapOfSymptoms = new TreeMap<>();
 
     /**
-     * le constructeur valorise la variable d'instance fileName avec le contenu du paramètre
+     * Le constructeur valorise la variable d'instance fileName avec le contenu du paramètre
      *
      * @param fileName objet String : le nom du fichier à explorer
      */
@@ -29,8 +29,8 @@ public class DataFromSymptomsFileToMap implements IDataFromSymptomsFileToMap {
     }
 
     /**
-     * crée un objet BufferedReader à partir du nom de fichier donné en attribut, et valorise
-     * l'attribut de classe buffer avec cet objet.
+     * Crée un objet BufferedReader à partir de fileName (attribut d'instance), et valorise
+     * l'attribut d'instance buffer avec cet objet.
      */
     public void fromStringToBufferedReader() {
         File file = new File(fileName);
@@ -42,7 +42,7 @@ public class DataFromSymptomsFileToMap implements IDataFromSymptomsFileToMap {
     }
 
     /**
-     * appelle FromStringToBufferedReader puis crée et retourne un objet Map associant chaque symptôme à son nombre d'occurrences, à partir de l'attribut reader.
+     * Appelle fromStringToBufferedReader puis crée et retourne un objet Map associant chaque symptôme à son nombre d'occurrences.
      */
     public TreeMap<String, Integer> createMap() throws Exception {
         this.fromStringToBufferedReader();

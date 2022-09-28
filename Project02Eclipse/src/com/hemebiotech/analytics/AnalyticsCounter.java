@@ -41,7 +41,7 @@ public class AnalyticsCounter {
      * La méthode workFlow appelle les méthodes des classes DataFromSymptomsFileToMap et DataFromMapToResultFile pour produire le fichier de résultats.
      *
      * @throws IOException si "result.out" existe mais n'est pas un fichier, ou n'existe pas
-     *                     mais ne peut âs être créé, ou enfin s'il ne peut être ouvert.
+     *                     mais ne peut pas être créé, ou enfin s'il ne peut être ouvert.
      */
     private void workFlow() throws IOException {
 

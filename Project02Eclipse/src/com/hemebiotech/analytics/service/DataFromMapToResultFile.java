@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 /**
- * lit les données d'une Map et retourne un fichier txt listant les symptômes unitaires suivis, pouur chacun,
+ * Lit les données d'une Map et retourne un fichier txt listant les symptômes unitaires (pas de doublon), suivis pour chacun,
  * du nombre d'occurrences.
  */
 public class DataFromMapToResultFile implements IDataFromMapToResultFile {
@@ -15,7 +15,7 @@ public class DataFromMapToResultFile implements IDataFromMapToResultFile {
     private final TreeMap<String, Integer> map;
 
     /**
-     * constructeur de MapServices valorise la variable d'instance map.
+     * Constructeur de MapServices valorise la variable d'instance map.
      *
      * @param thisMap TreeMap<String, Integer>  associe chaque symptôme (clé) au
      *                nombre d'occurrences rencontrées pour ce symtôme (valeur).
