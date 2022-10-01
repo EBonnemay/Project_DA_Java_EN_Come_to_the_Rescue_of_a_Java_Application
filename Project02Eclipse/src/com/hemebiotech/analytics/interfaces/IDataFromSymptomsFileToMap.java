@@ -1,10 +1,11 @@
 package com.hemebiotech.analytics.interfaces;
 
+import java.io.IOException;
 import java.util.TreeMap;
 
 public interface IDataFromSymptomsFileToMap {
 
-    void fromStringToBufferedReader();
+    void fromStringToBufferedReader() throws IOException;
 
-    TreeMap<String, Integer> createMap() throws Exception;
+    TreeMap<String, Integer> createMap();
 }

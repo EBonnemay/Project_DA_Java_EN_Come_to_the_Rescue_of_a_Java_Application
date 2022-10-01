@@ -5,7 +5,6 @@ import com.hemebiotech.analytics.interfaces.IDataFromSymptomsFileToMap;
 import com.hemebiotech.analytics.interfaces.IDataFromMapToResultFile;
 import com.hemebiotech.analytics.service.*;
 
-import java.io.IOException;
 import java.util.TreeMap;
 
 /**
@@ -28,39 +27,27 @@ public class AnalyticsCounter {
      */
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         fileName = "Project02Eclipse/symptoms.txt";
         if (args.length != 0) {
             fileName = args[0];
         }
         AnalyticsCounter ac = new AnalyticsCounter();
+
         ac.workFlow();
     }
 
+
     /**
      * La méthode workFlow appelle les méthodes des classes DataFromSymptomsFileToMap et DataFromMapToResultFile pour produire le fichier de résultats.
-     *
-     * @throws IOException si "result.out" existe mais n'est pas un fichier, ou n'existe pas
-     *                     mais ne peut pas être créé, ou enfin s'il ne peut être ouvert.
      */
-    private void workFlow() throws IOException {
+
+    private void workFlow() {
 
         IDataFromSymptomsFileToMap readD = new DataFromSymptomsFileToMap(fileName);
         TreeMap<String, Integer> objetMap;
-
-        try {
-            objetMap = readD.createMap();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
+        objetMap = readD.createMap();
         IDataFromMapToResultFile retrieveD = new DataFromMapToResultFile(objetMap);
-
-        try {
-            retrieveD.fromTreemapToFile();
-        } catch (IOException e) {
-            throw new IOException(e);
-        }
-
+        retrieveD.fromTreemapToFile();
     }
 }

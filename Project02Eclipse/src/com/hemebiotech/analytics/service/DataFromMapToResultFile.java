@@ -27,17 +27,17 @@ public class DataFromMapToResultFile implements IDataFromMapToResultFile {
     /**
      * Méthode fromTreemapToFile retourne un fichier txt contenant la liste des
      * symptômes et le nombre d'occurrences correspondant
-     *
-     * @throws IOException si "result.out" existe mais n'est pas un fichier, ou n'existe pas
-     *                     mais ne peut âs être créé, ou enfin s'il ne peut être ouvert.
      */
-
-    public void fromTreemapToFile() throws IOException {
-        FileWriter writer = new FileWriter("result.out");
-        for (String s : map.keySet()) {
-            writer.write(s + "=" + map.get(s) + "\n");
+    public void fromTreemapToFile() {
+        try {
+            FileWriter writer = new FileWriter("result.out");
+            for (String s : map.keySet()) {
+                writer.write(s + "=" + map.get(s) + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException("cannot open output file", e);
         }
-        writer.close();
 
     }
 
